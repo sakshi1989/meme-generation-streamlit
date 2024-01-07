@@ -1,6 +1,19 @@
+from os import path
 import streamlit as st
 from PIL import Image
 from lib.util import generate_meme
+from lib.download_from_gdrive import download_file_from_google_drive
+
+if not path.exists("models/MemeGenerationInceptionv3.best.pth"):
+    with st.spinner("Downloading model MemeGenerationInceptionv3.best.pth..."):
+        download_file_from_google_drive(
+            "1J4W7MHajN8qROBUOWStM6MOcmOnPprkg", "models/MemeGenerationInceptionv3.best.pth"
+        )
+
+
+if not path.exists("models/MemeGenerationResnet.best.pth"):
+    with st.spinner("Downloading model MemeGenerationResnet.best.pth..."):
+        download_file_from_google_drive("1ws3YdqAxn9paBYvSYR3s9sBFHH1HwdOO", "models/MemeGenerationResnet.best.pth")
 
 
 # Set the title and description of the app
