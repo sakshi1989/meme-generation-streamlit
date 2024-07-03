@@ -2,3 +2,4 @@ streamlit
 pillow
 torch
 torchvision
+gdown
